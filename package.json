@@ -24,6 +24,6 @@
     "husky": "^4.2.5"
   },
   "husky": {
-    "pre-commit": "npm lint"
+    "pre-commit": "npm run lint"
   }
 }
