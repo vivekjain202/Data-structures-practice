@@ -2,19 +2,19 @@
 
 export class Node {
     constructor(value) {
-        this.value = value
-        this.next = null
+        this.value = value;
+        this.next = null;
     }
 }
 
 export class LinkedList {
     constructor() {
-        this.head = null
-        this.tail = null
+        this.head = null;
+        this.tail = null;
     }
 
     add(value) {
-        let head = this.head
+        let head = this.head;
         let newNode = new Node(value)
         if (!head) {
             this.head = newNode
