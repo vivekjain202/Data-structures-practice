@@ -14,7 +14,7 @@ export class LinkedList {
   }
 
   add(value) {
-    const { head } = this.head || { head: null };
+    const { head } = this || { head: null };
     const newNode = new Node(value);
     if (!head) {
       this.head = newNode;
@@ -26,7 +26,7 @@ export class LinkedList {
   }
 
   prepand(value) {
-    const { head } = this.head || { head: null };
+    const { head } = this || { head: null };
     const node = new Node(value);
     node.next = head;
     this.head = node;
@@ -36,7 +36,7 @@ export class LinkedList {
   }
 
   search(value) {
-    let { head } = this.head || { head: null };
+    let { head } = this || { head: null };
     while (head) {
       if (head.value === value) {
         return true;
@@ -50,7 +50,7 @@ export class LinkedList {
     if (!this.head) {
       return false;
     }
-    let { head } = this.head || { head: null };
+    let { head } = this || { head: null };
     if (head.value === value) {
       this.head = head.next;
       return true;
@@ -74,7 +74,7 @@ export class LinkedList {
   }
 
   print() {
-    let { head } = this.head || { head: null };
+    let { head } = this || { head: null };
     while (head) {
       // eslint-disable-next-line
       console.log(head.value);

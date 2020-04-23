@@ -1,4 +1,4 @@
-// eslint-disable next line
+// eslint-disable-next-line
 class Node {
   constructor(value) {
     this.value = value;
@@ -6,7 +6,7 @@ class Node {
   }
 }
 
-// eslint-disable next line
+// eslint-disable-next-line
 class IncrementalLinkedList {
   constructor() {
     this.head = null;
@@ -14,31 +14,31 @@ class IncrementalLinkedList {
   }
 
   add(value) {
-    let { head } = this.head || { head: null };
+    let { head } = this || { head: null };
     const newNode = new Node(value);
     // if linkedlist is not initialised yet
     if (!head) {
       this.head = newNode;
       this.tail = newNode;
     } else if (value <= head.value) {
-        newNode.next = head;
-        this.head = newNode;
+      newNode.next = head;
+      this.head = newNode;
+    }
+    // in case value is greater then tail we need to adjust tail
+    else if (this.tail && value >= this.tail.value) {
+      this.tail.next = newNode;
+      this.tail = newNode;
+    } else {
+      while (head && head.next && value >= head.next.value) {
+        head = head.next;
       }
-      // in case value is greater then tail we need to adjust tail
-      else if (this.tail && value >= this.tail.value) {
-        this.tail.next = newNode;
-        this.tail = newNode;
-      } else {
-        while (head && head.next && value >= head.next.value) {
-          head = head.next;
-        }
-        newNode.next = head.next;
-        head.next = newNode;
-      }
+      newNode.next = head.next;
+      head.next = newNode;
+    }
   }
 
   delete(value) {
-    let { head } = this.head || { head: null };
+    let { head } = this || { head: null };
     // if linkedlist is not initialised yet
     if (!head) {
       return false;
@@ -65,7 +65,7 @@ class IncrementalLinkedList {
   }
 
   serach(value) {
-    let { head } = this.head || { head: null };
+    let { head } = this || { head: null };
     if (!head) {
       return false;
     }
@@ -79,9 +79,9 @@ class IncrementalLinkedList {
   }
 
   print() {
-    let { head } = this.head || { head: null };
+    let { head } = this || { head: null };
     while (head) {
-      // eslint-disable next line
+      // eslint-disable-next-line
       console.log(head.value);
       head = head.next;
     }
