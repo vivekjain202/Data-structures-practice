@@ -1,13 +1,7 @@
 // LinkedList real life usecase examples https://www.geeksforgeeks.org/applications-of-linked-list-data-structure/
-// eslint-disable-next-line
-export class Node {
-  constructor(value) {
-    this.value = value;
-    this.next = null;
-  }
-}
+const Node = require("../../Node/index.js");
 
-export class LinkedList {
+class LinkedList {
   constructor() {
     this.head = null;
     this.tail = null;
@@ -93,3 +87,5 @@ export class LinkedList {
     }
   }
 }
+
+module.exports.LinkedList = LinkedList;
